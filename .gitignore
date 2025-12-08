@@ -15,3 +15,8 @@ typings
 # Output files
 *.png
 *.svg
+
+# Whitelist assets
+!assets/
+!assets/*.png
+!assets/*.svg
