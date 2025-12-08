@@ -32,10 +32,10 @@ Clone the repository:
     cd py-art
 ```
 
-Install dependencies:
+Install dependencies in a virtual environment using `uv` (see [PEP 668](https://peps.python.org/pep-0668/)):
 
 ```bash
-    pip install -r requirements.txt
+    uv venv && uv sync
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ Install dependencies:
 Run the generator:
 
 ```bash
-    python main.py
+    uv run main.py
 ```
 
 This will produce SVG files such as:
@@ -88,4 +88,4 @@ The output SVG matches the target print size precisely.
 ## License
 
 This project is licensed under the BSD 2-Clause License.
-See the LICENSE file for details.
+See the [LICENSE](LICENSE) file for details.
