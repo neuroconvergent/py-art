@@ -28,7 +28,7 @@ py-art is a Python project for generating geometric artwork—specifically rando
 Clone the repository:
 
 ```bash
-    git clone https://github.com/neuroconvergent/py-art
+    git clone --depth 1 https://github.com/neuroconvergent/py-art
     cd py-art
 ```
 
