@@ -28,14 +28,14 @@ py-art is a Python project for generating geometric artwork—specifically rando
 Clone the repository:
 
 ```bash
-    git clone --depth 1 https://github.com/neuroconvergent/py-art
-    cd py-art
+git clone --depth 1 https://github.com/neuroconvergent/py-art
+cd py-art
 ```
 
 Install dependencies in a virtual environment using `uv` (see [PEP 668](https://peps.python.org/pep-0668/)):
 
 ```bash
-    uv venv && uv sync
+uv venv && uv sync
 ```
 
 ## Usage
@@ -43,28 +43,28 @@ Install dependencies in a virtual environment using `uv` (see [PEP 668](https://
 Run the generator:
 
 ```bash
-    uv run main.py
+uv run main.py
 ```
 
 This will produce SVG files such as:
 
 ```bash
-    triangular_pattern_1.svg
-    triangular_pattern_2.svg
-    ...
-    triangular_pattern_9.svg
+triangular_pattern_1.svg
+triangular_pattern_2.svg
+...
+triangular_pattern_9.svg
 ```
 
 To customize the artwork, modify the create_image() parameters inside main.py:
 
 ```bash
-    create_image(
-        name="triangular_pattern_1",
-        dpi=96,
-        width_inch=20,
-        height_inch=60,
-        border_width_inch=1
-    )
+create_image(
+    name="triangular_pattern_1",
+    dpi=96,
+    width_inch=20,
+    height_inch=60,
+    border_width_inch=1
+)
 ```
 
 You may adjust:
@@ -84,6 +84,12 @@ The output SVG matches the target print size precisely.
 - Perfectly scalable with no loss of detail
 - Optimized for glass printing
 - Thick white borders enhance colour separation and readability through translucent materials
+
+>[!TIP]
+> Convert to PNG with [ImageMagick](https://imagemagick.org/)
+> ```bash
+> for f in *.svg; do magick "$f" -density 300 "${f%.svg}.png"; done
+> ```
 
 ## License
 
