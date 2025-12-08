@@ -1,9 +1,12 @@
 [project]
-name = "glass-design"
+name = "py-art"
 version = "0.1.0"
-description = "Add your description here"
+description = "Geometric design generation for digital printing"
 readme = "README.md"
+license = "BSD-2-Clause"
+license-files = ["LICENSE"]
 requires-python = ">=3.13"
+authors = [{ name = "Sundar Gurumurthy", email = "sundar@sundar.guru" }]
 dependencies = [
     "kaleido>=1.2.0",
     "numpy>=2.3.5",

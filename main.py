@@ -1,10 +1,13 @@
+# ---------------------------------------------------------------------------------------
+# Licensed under BSD 2-clause https://github.com/neuroconvergent/py-art/blob/main/LICENSE
+# ---------------------------------------------------------------------------------------
 import numpy as np
 import plotly.graph_objects as go
 from scipy.spatial import Delaunay
 
 
 def main():
-    for i in range(1,10):
+    for i in range(1, 10):
         create_image(
             name=f"triangular_pattern_{i}",
             dpi=96,
@@ -104,7 +107,7 @@ def create_image(
     y_mid = y_range / 2
 
     # Calculate width of white border in pixels
-    border_width_px = int(border_width_inch * dpi / 2) # border on both sides
+    border_width_px = int(border_width_inch * dpi / 2)  # border on both sides
 
     # Define minimum spacing between points
     minimum_triangle_size_inch = 5
@@ -112,16 +115,17 @@ def create_image(
     poisson_y_scale = height_inch / y_range
     min_scale = min(poisson_x_scale, poisson_y_scale)
 
-    # 1. Random points
+    # Random points
     r = minimum_triangle_size_inch / (2 * min_scale)  # minimum spacing
     pts = poisson_disc_samples(width=x_range, height=y_range, r=r)
     pts[:, 0] -= x_mid
     pts[:, 1] -= y_mid
-    # # Add jitter to increase randomness while keeping overall spacing
+
+    # OPTIONAL: Add jitter to increase randomness while keeping overall spacing
     # jitter_strength = r * 0.65  # ~35% of minimum spacing
     # pts += np.random.uniform(-jitter_strength, jitter_strength, pts.shape)
 
-    # 2. Delaunay triangulation
+    # Delaunay triangulation
     tri = Delaunay(pts)
 
     # 4 colors to choose from
