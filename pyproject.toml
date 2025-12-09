@@ -16,5 +16,9 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "plotly-stubs>=0.0.6",
     "ruff>=0.14.8",
 ]
+
+[tool.basedpyright]
+include = ["typings"]

@@ -175,7 +175,7 @@ def create_image(
         x = np.append(x, x[0])
         y = np.append(y, y[0])
 
-        fig.add_trace(
+        _ = fig.add_trace(
             go.Scatter(
                 x=x,
                 y=y,
@@ -186,7 +186,7 @@ def create_image(
             )
         )
 
-    fig.update_layout(
+    _ = fig.update_layout(
         showlegend=False,
         xaxis=dict(visible=False),
         yaxis=dict(visible=False),
@@ -194,10 +194,14 @@ def create_image(
         plot_bgcolor="white",
         paper_bgcolor="white",
     )
-    fig.update_xaxes(range=[0, 1])
-    fig.update_yaxes(range=[0, 3])
+    _ = fig.update_xaxes(range=[0, x_scale])
+    _ = fig.update_yaxes(range=[0, y_scale])
 
-    fig.write_image(f"{name}.svg", width=width, height=height)
+    fig.write_image(
+        f"{name}.svg",  # pyright: ignore[reportArgumentType]
+        width=width,
+        height=height,
+    )
 
 
 if __name__ == "__main__":
