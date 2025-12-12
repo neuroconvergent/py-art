@@ -1,5 +1,7 @@
 > [!NOTE]
 > This README is almost completely AI generated because I am lazy.
+> A human written blog post about this project is available at:
+> https://sundar.guru/blog/2025/Creative-programming/
 
 # py-art
 

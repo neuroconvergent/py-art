@@ -128,8 +128,8 @@ def create_image(
     # Delaunay triangulation
     tri = Delaunay(pts)
 
-    # 4 colors to choose from
-    triangle_colors = [None] * len(tri.simplices)
+    # 4 colours to choose from
+    triangle_colours = [None] * len(tri.simplices)
 
     # Precompute adjacency list
     adj = [[] for _ in tri.simplices]
@@ -145,22 +145,22 @@ def create_image(
             else:
                 edges[key] = i
 
-    # Assign colors with anti-clumping
+    # Assign colours with anti-clumping
     for i in range(len(tri.simplices)):
         neighbors = adj[i]
         disallowed = {
-            triangle_colors[n] for n in neighbors if triangle_colors[n] is not None
+            triangle_colours[n] for n in neighbors if triangle_colours[n] is not None
         }
 
-        # Retry random colors until one fits
+        # Retry random colours until one fits
         for _ in range(10):
             c = np.random.choice(palette)
             if c not in disallowed:
-                triangle_colors[i] = c
+                triangle_colours[i] = c
                 break
         else:
             # fallback (should almost never happen)
-            triangle_colors[i] = np.random.choice(palette)
+            triangle_colours[i] = np.random.choice(palette)
 
     fig = go.Figure()
 
@@ -169,7 +169,7 @@ def create_image(
         vertices = pts[simplex]
         x = vertices[:, 0]
         y = vertices[:, 1]
-        color = triangle_colors[i]
+        colour = triangle_colours[i]
 
         # close the polygon
         x = np.append(x, x[0])
@@ -181,8 +181,10 @@ def create_image(
                 y=y,
                 fill="toself",
                 mode="lines",
-                line=dict(color="white", width=border_width_px),  # ✔ thick white border
-                fillcolor=color,
+                line=dict(
+                    color="white", width=border_width_px
+                ),  
+                fillcolor=colour,
             )
         )
 
