@@ -1,3 +1,6 @@
+# Copyright 2025 Sundar Gurumurthy
+# SPDX-License-Identifier: BSD-2-License
+
 import numpy as np
 from scipy.spatial import Delaunay
 import plotly.graph_objects as go

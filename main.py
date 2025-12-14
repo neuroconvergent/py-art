@@ -1,6 +1,6 @@
-# ---------------------------------------------------------------------------------------
-# Licensed under BSD 2-clause https://github.com/neuroconvergent/py-art/blob/main/LICENSE
-# ---------------------------------------------------------------------------------------
+# Copyright 2025 Sundar Gurumurthy
+# SPDX-License-Identifier: BSD-2-License
+
 import numpy as np
 import plotly.graph_objects as go
 from scipy.spatial import Delaunay
